@@ -1,150 +1,234 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herbalife - Distribuidor Independiente</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        header {
-            background: #00a651;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .hero {
-            background: linear-gradient(135deg, #00a651 0%, #006838 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        .product-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .product-card h3 {
-            color: #00a651;
-            margin: 15px 0;
-        }
-        .cta-button {
-            background: #00a651;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-        }
-        .cta-button:hover {
-            background: #006838;
-        }
-        .contact {
-            background: #f4f4f4;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Herbalife - Distribuidor Independiente</title>
+  <meta name="description" content="Distribuidor Independiente de Herbalife: productos de nutrición, bienestar, control de peso y energía. Compra, asesoría y envíos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#00a651;--brand-dark:#006838;--text:#222;--muted:#6b7280;--bg:#fff;--card:#f7faf9;--border:#e5e7eb}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:var(--text);background:var(--bg)}
+    a{color:var(--brand)}a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:50;background:linear-gradient(135deg,var(--brand),var(--brand-dark));color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:700}
+    .logo-badge{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--brand-dark);display:grid;place-items:center;font-weight:800}
+    .nav-links{display:flex;gap:18px;font-weight:600}
+
+    .hero{background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dark) 100%);color:#fff;text-align:center;padding:72px 20px}
+    .hero h1{font-size:clamp(26px,4.2vw,44px);margin:0 0 10px}
+    .hero p{margin:0 auto 24px;max-width:800px;opacity:.95}
+    .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{background:#fff;color:var(--brand-dark);border:none;padding:12px 20px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn.alt{background:transparent;border:2px solid #fff;color:#fff}
+
+    .container{max-width:1200px;margin:0 auto;padding:36px 20px}
+    .section-title{font-size:clamp(22px,3vw,28px);margin:0 0 10px}
+    .section-sub{color:var(--muted);margin:0 0 22px}
+
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+    .card h3{color:var(--brand-dark);margin:6px 0}
+    .price{font-weight:800}
+    .card .actions{display:flex;gap:10px}
+    .card button{flex:1}
+
+    .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+
+    .badges{display:flex;gap:12px;flex-wrap:wrap}
+    .badge{background:#e8fff2;border:1px solid #c7f3dd;color:var(--brand-dark);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px}
+
+    .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .quote{border-left:4px solid var(--brand);background:#fff;border:1px solid var(--border);padding:14px;border-radius:10px}
+    .quote strong{color:var(--brand-dark)}
+
+    .faq details{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px}
+    .faq details+details{margin-top:10px}
+    .faq summary{cursor:pointer;font-weight:700;color:var(--brand-dark)}
+
+    .cart{position:sticky;top:84px;border:1px solid var(--border);border-radius:12px;padding:14px;background:#fff}
+    .cart .row{display:flex;justify-content:space-between;align-items:center;margin:6px 0}
+    .cart .total{font-weight:800;font-size:18px}
+    .cart .empty{color:var(--muted)}
+
+    form input,form textarea,form select{width:100%;padding:10px;border:1px solid var(--border);border-radius:10px}
+    form .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    form button{margin-top:8px}
+
+    .policies{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .policy{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px}
+
+    footer{background:#0c1310;color:#e5ffee;margin-top:30px}
+    .footer-inner{max-width:1200px;margin:0 auto;padding:28px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+    .small{color:#b6c9c0;font-size:13px}
+    .notice{font-size:12px;color:#6b7280;margin-top:6px}
+  </style>
 </head>
 <body>
-    <header>
-        <h1>🌿 Herbalife Nutrition</h1>
-        <p>Distribuidor Independiente</p>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Transforma Tu Vida con Nutrición de Calidad</h1>
-            <p>Productos respaldados por la ciencia para mejorar tu salud y bienestar</p>
-            <a href="#contact" class="cta-button">Contáctame Ahora</a>
-        </div>
-    </section>
-
-    <div class="container">
-        <h2 style="text-align: center; margin: 40px 0; color: #00a651;">Nuestros Productos Destacados</h2>
-        
-        <div class="products">
-            <div class="product-card">
-                <h3>Formula 1</h3>
-                <p>Batido Nutricional saludable y delicioso que proporciona un excelente equilibrio de proteínas, carbohidratos y nutrientes esenciales.</p>
-                <a href="#contact" class="cta-button">Más Información</a>
-            </div>
-            
-            <div class="product-card">
-                <h3>Aloe Concentrado</h3>
-                <p>Bebida refrescante con aloe vera que ayuda a mantener una función digestiva saludable y la absorción de nutrientes.</p>
-                <a href="#contact" class="cta-button">Más Información</a>
-            </div>
-            
-            <div class="product-card">
-                <h3>Té Herbal</h3>
-                <p>Mezcla de té negro y verde con extractos botánicos que ayuda a aumentar tu metabolismo y sensación de energía.</p>
-                <a href="#contact" class="cta-button">Más Información</a>
-            </div>
-            
-            <div class="product-card">
-                <h3>Proteína Personalizada</h3>
-                <p>Polvo de proteína en polvo de alta calidad que ayuda a desarrollar masa muscular magra y apoya la recuperación.</p>
-                <a href="#contact" class="cta-button">Más Información</a>
-            </div>
-        </div>
+  <header>
+    <div class="nav">
+      <div class="logo"><div class="logo-badge">H</div><span>Herbalife · Distribuidor Independiente</span></div>
+      <nav class="nav-links">
+        <a href="#productos">Productos</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#politicas">Políticas</a>
+      </nav>
     </div>
+  </header>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 style="color: #00a651; margin-bottom: 20px;">¿Listo para Comenzar tu Transformación?</h2>
-            <p style="margin-bottom: 20px;">Contáctame hoy para una consulta gratuita y personalizada</p>
-            <a href="mailto:contacto@ejemplo.com" class="cta-button">Enviar Email</a>
-            <a href="https://wa.me/1234567890" class="cta-button">WhatsApp</a>
-        </div>
+  <section class="hero">
+    <h1>Bienestar y nutrición a tu alcance</h1>
+    <p>Asesoría personalizada en control de peso, energía y nutrición deportiva con productos Herbalife. Compra directa y envíos.</p>
+    <div class="cta">
+      <a class="btn" href="#productos">Ver productos</a>
+      <a class="btn alt" href="#contacto">Pedir asesoría</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="badges" aria-label="Beneficios">
+      <span class="badge">Compra segura</span>
+      <span class="badge">Asesoría 1 a 1</span>
+      <span class="badge">Envíos nacionales</span>
+      <span class="badge">Resultados reales</span>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Distribuidor Independiente Herbalife</p>
-            <p>Los resultados pueden variar. Este es un sitio personal de un Distribuidor Independiente Herbalife.</p>
+    <section id="productos" aria-labelledby="titulo-productos">
+      <h2 id="titulo-productos" class="section-title">Productos destacados</h2>
+      <p class="section-sub">Fórmulas originales para tus objetivos de bienestar.</p>
+      <div class="grid-2">
+        <div class="products" aria-label="Listado de productos">
+          <article class="card" data-id="batido-vainilla">
+            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800&auto=format&fit=crop" alt="Batido nutricional sabor vainilla" style="width:100%;border-radius:8px;aspect-ratio:4/3;object-fit:cover" loading="lazy">
+            <h3>Batido Nutricional Vainilla</h3>
+            <p>Reemplazo de comida equilibrado, vitaminas y minerales.</p>
+            <div class="row" style="display:flex;justify-content:space-between;align-items:center">
+              <span class="price">$29.900</span>
+              <div class="actions">
+                <button class="btn" onclick="addToCart('Batido Vainilla',29900)">Agregar</button>
+                <button class="btn alt" onclick="details('Batido Vainilla')">Detalles</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-id="te-energia">
+            <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?q=80&w=800&auto=format&fit=crop" alt="Té concentrado bebida energética" style="width:100%;border-radius:8px;aspect-ratio:4/3;object-fit:cover" loading="lazy">
+            <h3>Té Concentrado</h3>
+            <p>Energía natural con extractos de té verde y negro.</p>
+            <div class="row" style="display:flex;justify-content:space-between;align-items:center">
+              <span class="price">$19.900</span>
+              <div class="actions">
+                <button class="btn" onclick="addToCart('Té Concentrado',19900)">Agregar</button>
+                <button class="btn alt" onclick="details('Té Concentrado')">Detalles</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-id="aloe">
+            <img src="https://images.unsplash.com/photo-1524593190574-7cbb058dc9f4?q=80&w=800&auto=format&fit=crop" alt="Concentrado de aloe" style="width:100%;border-radius:8px;aspect-ratio:4/3;object-fit:cover" loading="lazy">
+            <h3>Concentrado de Aloe</h3>
+            <p>Refrescante y digestivo, apoya la salud gastrointestinal.</p>
+            <div class="row" style="display:flex;justify-content:space-between;align-items:center">
+              <span class="price">$24.900</span>
+              <div class="actions">
+                <button class="btn" onclick="addToCart('Aloe Concentrado',24900)">Agregar</button>
+                <button class="btn alt" onclick="details('Aloe Concentrado')">Detalles</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" data-id="proteina">
+            <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=800&auto=format&fit=crop" alt="Proteína personalizada" style="width:100%;border-radius:8px;aspect-ratio:4/3;object-fit:cover" loading="lazy">
+            <h3>Polvo de Proteína</h3>
+            <p>Apoya la masa muscular con proteína de alta calidad.</p>
+            <div class="row" style="display:flex;justify-content:space-between;align-items:center">
+              <span class="price">$27.500</span>
+              <div class="actions">
+                <button class="btn" onclick="addToCart('Proteína',27500)">Agregar</button>
+                <button class="btn alt" onclick="details('Proteína')">Detalles</button>
+              </div>
+            </div>
+          </article>
         </div>
-    </footer>
-</body>
-</html>
+
+        <aside class="cart" aria-label="Carrito" id="carrito">
+          <h3 style="margin:0 0 8px">Tu carrito</h3>
+          <div id="cart-items" class="empty">Aún no hay productos</div>
+          <div class="row" style="margin-top:8px"><span class="total">Total:</span><span id="cart-total" class="total">$0</span></div>
+          <button class="btn" style="width:100%;margin-top:10px" onclick="checkout()">Finalizar compra</button>
+          <p class="notice">Precios referenciales. Distribuidor independiente, no sitio oficial de Herbalife.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="testimonios" aria-labelledby="titulo-testimonios">
+      <h2 id="titulo-testimonios" class="section-title">Testimonios</h2>
+      <div class="testi">
+        <p class="quote">“Bajé 6 kg en 8 semanas con guía personalizada.” <br><strong>– Andrea</strong></p>
+        <p class="quote">“Más energía en mis entrenamientos con el té y proteína.” <br><strong>– Luis</strong></p>
+        <p class="quote">“Fácil de preparar y rico sabor, ideal para mi rutina.” <br><strong>– Camila</strong></p>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="titulo-faq" class="faq">
+      <h2 id="titulo-faq" class="section-title">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Los productos reemplazan comidas?</summary>
+        <p>Los batidos pueden utilizarse como reemplazo parcial de comidas dentro de un plan equilibrado.</p>
+      </details>
+      <details>
+        <summary>¿Hacen envíos?</summary>
+        <p>Sí, realizamos envíos a nivel nacional con distintas paqueterías.</p>
+      </details>
+      <details>
+        <summary>¿Cómo obtengo asesoría?</summary>
+        <p>Completa el formulario y coordinamos una llamada gratuita.</p>
+      </details>
+    </section>
+
+    <section id="contacto" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto" class="section-title">Contacto y asesoría</h2>
+      <p class="section-sub">Déjanos tus datos y objetivo; te contactaremos en menos de 24 horas.</p>
+      <form onsubmit="return submitLead(event)" aria-label="Formulario de contacto">
+        <div class="row">
+          <p><label>Nombre<br><input required name="nombre" placeholder="Tu nombre"></label></p>
+          <p><label>Teléfono / WhatsApp<br><input required name="telefono" placeholder="+57 300 000 0000"></label></p>
+        </div>
+        <div class="row">
+          <p><label>Correo<br><input required type="email" name="email" placeholder="tu@correo.com"></label></p>
+          <p><label>Objetivo<br>
+            <select name="objetivo">
+              <option>Control de peso</option>
+              <option>Energía y bienestar</option>
+              <option>Nutrición deportiva</option>
+            </select>
+          </label></p>
+        </div>
+        <p><label>Mensaje<br><textarea name="mensaje" rows="4" placeholder="Cuéntanos cómo podemos ayudarte"></textarea></label></p>
+        <button class="btn">Enviar</button>
+        <p class="notice">Al enviar, aceptas ser contactado por un distribuidor independiente.</p>
+      </form>
+    </section>
+
+    <section id="politicas" aria-labelledby="titulo-politicas" class="policies">
+      <h2 id="titulo-politicas" class="section-title">Políticas</h2>
+      <article class="policy">
+        <h3>Privacidad</h3>
+        <p>Protegemos tus datos y no los compartimos con terceros sin tu autorización.</p>
+      </article>
+      <article class="policy">
+        <h3>Reembolsos</h3>
+        <p>Productos sellados pueden devolverse dentro de 10 días según normativa aplicable.</p>
+      </article>
+      <article class="policy">
+        <h3>Envíos</h3>
+        <p>Despacho en 24-48h hábiles. Recibirás número de seguimiento por correo.</p>
+      </article>
+    </
